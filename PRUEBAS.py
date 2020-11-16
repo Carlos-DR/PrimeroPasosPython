@@ -1,15 +1,19 @@
-n = 0
+import pygame
 
-prueba1 = 'Hola'
-prueba2 = 'Adios'
-prueba3 = 'que tal'
+pygame.init()   # Iniciamos con init para crear la pantalla
+dis = pygame.display.set_mode((400, 300))   # dis será la variable que mostrará la pantalla, con el tamaño en píxeles, ancho y alto
 
-tablero = 'Hola'
+pygame.display.set_caption('Snake, aprendiendo') #Nombre de la ventana
 
-while n < 4:
-    variable = 'prueba' + str(n)
-    print(variable)
-    n = n +1
+blue = (0,0,255)
+red = (255,0,0)
 
-    if tablero == variable:
-        print('Funciona', variable)
+game_over = False
+while not game_over:    #bucle para la pantalla
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            game_over = True
+        pygame.draw.rect(dis, blue,  [200,150, 10, 10]) #Creamos la serpiente, marcamos la posición donde aparece (200x150) y los píxseles de grande (10x10)
+        pygame.display.update()
+pygame.quit()
+quit()
